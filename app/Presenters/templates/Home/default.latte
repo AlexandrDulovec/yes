@@ -1,0 +1,32 @@
+{block content}
+<div class="vytvoreni">
+	<a n:href="Edit:create" n:if="$user->isLoggedIn()">Vytvořit příspěvek</a>
+</div>
+<title>Zbraně historie</title>
+	{foreach $articles as $article}
+	<div class="post">
+	<h2><a href="{link Post:show $article->id}">{$article->title}</a></h2>
+
+		<div>{$article->content|truncate:256}</div>
+		<div class="date">{$article->created_at|date:'F j, Y'}</div>
+		{/foreach}
+	</div>
+<div class="pagination">
+	{if !$paginator->isFirst()}
+		<a n:href="default, 1">První</a>
+		&nbsp;|&nbsp;
+		<a n:href="default, $paginator->page-1">Předchozí</a>
+		&nbsp;|&nbsp;
+	{/if}
+
+	Stránka {$paginator->getPage()} z {$paginator->getPageCount()}
+
+	{if !$paginator->isLast()}
+		&nbsp;|&nbsp;
+		<a n:href="default, $paginator->getPage() + 1">Další</a>
+		&nbsp;|&nbsp;
+		<a n:href="default, $paginator->getPageCount()">Poslední</a>
+	{/if}
+</div>
+
+{/block}

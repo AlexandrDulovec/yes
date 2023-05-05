@@ -1,0 +1,355 @@
+{block content}
+<title>Příspěvěk</title>
+<div class="postTitle">
+<div class="uprava">
+        <a n:href="Edit:edit $post->id">Upravit příspěvek</a>
+    </div>
+<h1 n:block="title">{$post->title}</h1>
+</div>
+<div class="date">{$post->created_at|date:'F j, Y'}</div>
+<img src="{$basePath}/img/upload/{$post->file_name}" width="60%" height="50%">
+<div class="post">{$post->content}</div>
+<br>
+<div class="redirecthome">
+<p><a n:href="Home:default"> zpět na výpis příspěvků</a></p>
+</div>
+<style>
+p {
+color: black;
+text-decoration: none;
+font-size: 18px;
+font-weight: bold;
+margin-top: 20px;
+display: inline-block;
+border: black;
+padding: 10px 20px;
+border-radius: 5px;
+list-style-type: none;
+}
+
+.date {
+  text-align: center;
+}
+
+.postTitle {
+  text-align: center;
+
+}
+
+
+.uprava a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  display: inline-block;
+  border: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  list-style-type: none;
+  transition: color 0.5s ease;
+}
+
+.uprava a:hover {
+  color: grey;
+}
+
+.redirecthome {
+  text-align: center;
+}
+
+.redirecthome a:hover {
+  color: grey;
+}
+
+
+
+.redirecthome a:active {
+  color: black;
+}
+
+.redirecthome a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  display: inline-block;
+  border: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  list-style-type: none;
+  transition: color 0.5s ease;
+}
+
+.uprava a:hover {
+  color: grey;
+}
+
+.uprava a:active {
+  color: black;
+}
+
+
+
+h1 {
+ list-style-type: none;
+ color:white;
+}
+/* General styles */
+.post {
+  max-width: 1000px;
+  overflow-wrap: break-word;
+  margin: 0 auto;
+  overflow-wrap: break-word;
+}
+img {
+ display: block;
+  margin: auto;
+}
+
+		  
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  color:white;
+  background: linear-gradient(#141e30, #243b55);
+}
+
+
+a {
+  text-decoration: none;
+}
+
+.p a:hover {
+   text-decoration: underline;
+}
+
+
+
+.post a {
+  color: white;
+  max-width: 1000px;
+  text-decoration: none;
+  overflow-wrap: break-word;
+}
+
+
+
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Flash message styles */
+.flash {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  color: #fff;
+  text-align: center;
+}
+
+.flash.success {
+  background-color: #28a745;
+}
+
+.flash.error {
+  background-color: #dc3545;
+}
+
+/* Navigace */
+.navig {
+  background-color: #00008B;	
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  text-decoration:none;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+}
+
+.navig a {
+  color: #fff;
+  margin-right: 20px;
+  list-style-type: none;
+}
+
+navig-title {
+  text-decoration:none;
+  list-style-type: none;
+}
+
+.navig a:hover {
+		  background-color:rgb(rgb(20, 20, 200));
+		}
+
+
+.prihlaseni {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.prihlaseni a {
+  color: #fff;
+  margin-left: 60px;
+}
+
+
+/* Content styles */
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form input[type="text"], form input[type="email"], form textarea {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+form textarea {
+  height: 200px;
+}
+
+form input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+
+
+.comments {
+  margin-top: 40px;
+}
+
+.comments h2 {
+  color: white;
+  font-size: 24px;
+}
+
+.comments p {
+  margin-top: 20px;
+  font-size: 16px;
+  color: white;
+}
+
+.comments a {
+  color: beige;
+}
+
+.comments div {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.comments div b {
+  font-weight: bold;
+}
+
+.comments input[type="text"], .comments input[type="email"], .comments textarea {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.comments input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.comments input[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+.comments label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: white;
+}
+
+.comments textarea {
+  height: 150px;
+}
+
+  .clanky {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	margin-left: auto;
+}
+
+.clanky a {
+	justify-content: space-between;
+	margin-left: 10px;
+	padding: 10px;
+}
+
+.clanky a:hover {
+  background-color: rgb(rgb(20, 20, 200));
+}
+
+li {
+
+  text-decoration:none;
+}
+</style>
+
+{control commentForm}
+
+<h2>Komentáře</h2>
+
+<div class="comments">
+	{foreach $comments as $comment}
+		<p><b><a href="mailto:{$comment->email}" n:tag-if="$comment->email">
+			{$comment->name}
+		</a></b> napsal:</p>
+
+		<div>{$comment->content}</div>
+	{/foreach}
+</div>
